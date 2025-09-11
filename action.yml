@@ -1,4 +1,4 @@
-name: Setup TeX Live
+name: Setup TeX Live - Updated
 author: Paolo Brasolin <paolo.brasolin@gmail.com>; maintained by Chandler May
 description: GHA action to setup TeX Live
 branding:
