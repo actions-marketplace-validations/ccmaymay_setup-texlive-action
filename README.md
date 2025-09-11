@@ -7,19 +7,19 @@
 [![Latest release badge][release-shield]][release-url]
 [![License badge][license-shield]][license-url]
 
-[ubuntu-ci-url]: https://github.com/paolobrasolin/setup-texlive-action/actions/workflows/ubuntu.yml "Ubuntu CI tests"
-[macos-ci-url]: https://github.com/paolobrasolin/setup-texlive-action/actions/workflows/macos.yml "macOS CI tests"
-[windows-ci-url]: https://github.com/paolobrasolin/setup-texlive-action/actions/workflows/windows.yml "Windows CI tests"
+[ubuntu-ci-url]: https://github.com/ccmaymay/setup-texlive-action/actions/workflows/ubuntu.yml "Ubuntu CI tests"
+[macos-ci-url]: https://github.com/ccmaymay/setup-texlive-action/actions/workflows/macos.yml "macOS CI tests"
+[windows-ci-url]: https://github.com/ccmaymay/setup-texlive-action/actions/workflows/windows.yml "Windows CI tests"
 
-[ubuntu-ci-shield]: https://img.shields.io/github/actions/workflow/status/paolobrasolin/setup-texlive-action/ubuntu.yml?branch=main&label=Ubuntu&logo=ubuntu&logoColor=white
-[macos-ci-shield]: https://img.shields.io/github/actions/workflow/status/paolobrasolin/setup-texlive-action/macos.yml?branch=main&label=macOS&logo=apple&logoColor=white
-[windows-ci-shield]: https://img.shields.io/github/actions/workflow/status/paolobrasolin/setup-texlive-action/windows.yml?branch=main&label=Windows&logo=windows&logoColor=white
+[ubuntu-ci-shield]: https://img.shields.io/github/actions/workflow/status/ccmaymay/setup-texlive-action/ubuntu.yml?branch=main&label=Ubuntu&logo=ubuntu&logoColor=white
+[macos-ci-shield]: https://img.shields.io/github/actions/workflow/status/ccmaymay/setup-texlive-action/macos.yml?branch=main&label=macOS&logo=apple&logoColor=white
+[windows-ci-shield]: https://img.shields.io/github/actions/workflow/status/ccmaymay/setup-texlive-action/windows.yml?branch=main&label=Windows&logo=windows&logoColor=white
 
-[release-url]: https://github.com/paolobrasolin/setup-texlive-action/releases "Latest release"
-[license-url]: https://github.com/paolobrasolin/setup-texlive-action/blob/main/LICENSE "License"
+[release-url]: https://github.com/ccmaymay/setup-texlive-action/releases "Latest release"
+[license-url]: https://github.com/ccmaymay/setup-texlive-action/blob/main/LICENSE "License"
 
-[release-shield]: https://img.shields.io/github/v/release/paolobrasolin/setup-texlive-action?display_name=tag&sort=semver
-[license-shield]: https://img.shields.io/github/license/paolobrasolin/setup-texlive-action
+[release-shield]: https://img.shields.io/github/v/release/ccmaymay/setup-texlive-action?display_name=tag&sort=semver
+[license-shield]: https://img.shields.io/github/license/ccmaymay/setup-texlive-action
 
 This action provides a smooth way to setup a TeX Live distribution tailored to your needs. Its features:
 
@@ -38,7 +38,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: paolobrasolin/setup-texlive-action@v1
+      - uses: ccmaymay/setup-texlive-action@v1
       - run: tlmgr version
 ```
 
@@ -72,7 +72,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: paolobrasolin/setup-texlive-action@v1
+      - uses: ccmaymay/setup-texlive-action@v1
         with:
           profile-path: ${{ github.workspace }}/.github/texlive.profile
           packages-path: ${{ github.workspace }}/.github/texlive.packages
@@ -105,7 +105,7 @@ It contains general instructions and most likely you'll just need to copy it and
 
 If more details are needed, you can find everything about writing profiles in the [official documentation][install-tl-profiles-man].
 
-[default-profile]: https://github.com/paolobrasolin/setup-texlive-action/blob/main/texlive.profile
+[default-profile]: https://github.com/ccmaymay/setup-texlive-action/blob/main/texlive.profile
 [install-tl-man]: https://www.tug.org/texlive/doc/install-tl.html
 [install-tl-profiles-man]: https://www.tug.org/texlive/doc/install-tl.html#PROFILES
 
@@ -121,7 +121,7 @@ If that's not the case, the file format is simple: list the packages one per lin
 
 To search or browse for packages you can use [CTAN][ctan].
 
-[default-packages]: https://github.com/paolobrasolin/setup-texlive-action/blob/main/texlive.packages
+[default-packages]: https://github.com/ccmaymay/setup-texlive-action/blob/main/texlive.packages
 [tlmgr-man]: https://www.tug.org/texlive/doc/tlmgr.html
 [ctan]: https://www.ctan.org/
 
@@ -157,7 +157,7 @@ jobs:
       - name: Generate a YYYY-WW timestamp
         id: timestamp
         run: ${{ runner.os == 'Windows' && 'Write-Output "::set-output name=yyyy-ww::$(Get-Date -UFormat %Y-%W)"' || 'echo "::set-output name=yyyy-ww::$(date +%Y-%W)"' }}
-      - uses: paolobrasolin/setup-texlive-action@v1
+      - uses: ccmaymay/setup-texlive-action@v1
         with:
           cache-key: texlive-${{ matrix.os }}-${{ steps.timestamp.output.yyyy-ww }}
       - run: tlmgr version
