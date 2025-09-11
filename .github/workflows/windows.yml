@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
       - name: Generate timestamp for weekly cache invalidation
         id: current-time
         run: Write-Output "formattedTime=$(Get-Date -UFormat %Y-%V)" >> $Env:GITHUB_OUTPUT
